@@ -1,15 +1,30 @@
-import React from 'react';
+// eslint-disable-next-line prettier/prettier
+import React, { useState } from 'react';
 // eslint-disable-next-line prettier/prettier
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 const App = () => {
+  const [enteredGoalText, setEnteredGoalText] = useState('');
+
+  const goalInputHandler = enteredText => {
+    setEnteredGoalText(enteredText);
+  };
+
+  const addGoalHandler = () => {
+    console.log(enteredGoalText);
+  };
+
   return (
     <View style={styles.appContainer}>
-      <View>
-        <TextInput placeholder="Your Course Goal!" />
-        <Button title="Add a Goal" />
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.textInput}
+          placeholder="Your Course Goal!"
+          onChangeText={goalInputHandler}
+        />
+        <Button title="Add a Goal" onPress={addGoalHandler} />
       </View>
-      <View>
+      <View style={styles.goalsContainer}>
         <Text>List of goals ...</Text>
       </View>
     </View>
@@ -18,7 +33,29 @@ const App = () => {
 
 const styles = StyleSheet.create({
   appContainer: {
-    padding: 50,
+    paddingTop: 50,
+    paddingHorizontal: 16,
+    flex: 1,
+  },
+  inputContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 24,
+    borderBottomWidth: 1,
+    borderBottomColor: '#cccccc',
+  },
+  textInput: {
+    borderWidth: 1,
+    borderColor: '#cccccc',
+    borderRadius: 5,
+    padding: 8,
+    flex: 0.9,
+    marginRight: 8,
+  },
+  goalsContainer: {
+    flex: 5,
   },
 });
 
