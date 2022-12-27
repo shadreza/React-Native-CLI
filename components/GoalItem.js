@@ -1,12 +1,14 @@
 import React from 'react';
 // eslint-disable-next-line prettier/prettier
-import { StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 const GoalItem = props => {
   return (
-    <View style={styles.goalItem}>
-      <Text>{props.text}</Text>
-    </View>
+    <Pressable onPress={props.onDeleteItem.bind(this, props.id)}>
+      <View style={styles.goalItem}>
+        <Text>{props.text}</Text>
+      </View>
+    </Pressable>
   );
 };
 

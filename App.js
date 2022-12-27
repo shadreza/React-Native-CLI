@@ -16,6 +16,11 @@ const App = () => {
     ]);
   };
 
+  const onDeleteGoalHandler = id => {
+    // @ts-ignore
+    setGoals(currentGoals => currentGoals.filter(goal => goal.id !== id));
+  };
+
   return (
     <View style={styles.appContainer}>
       <GoalInput onAddGoal={addGoalHandler} />
@@ -23,9 +28,18 @@ const App = () => {
         <FlatList
           data={goals}
           keyExtractor={(item, index) => {
+            // @ts-ignore
             return item.id;
           }}
-          renderItem={itemData => <GoalItem text={itemData.item.text} />}
+          renderItem={itemData => (
+            <GoalItem
+              // @ts-ignore
+              text={itemData.item.text}
+              // @ts-ignore
+              id={itemData.item.id}
+              onDeleteItem={onDeleteGoalHandler}
+            />
+          )}
         />
       </View>
     </View>
