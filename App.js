@@ -1,7 +1,8 @@
 // eslint-disable-next-line prettier/prettier
 import React, { useState } from 'react';
 // eslint-disable-next-line prettier/prettier
-import { Button, FlatList, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, FlatList, StyleSheet, TextInput, View } from 'react-native';
+import GoalItem from './components/GoalItem';
 
 const App = () => {
   const [enteredGoalText, setEnteredGoalText] = useState({});
@@ -36,13 +37,7 @@ const App = () => {
           keyExtractor={(item, index) => {
             return item.id;
           }}
-          renderItem={itemData => {
-            return (
-              <View style={styles.goalItem}>
-                <Text>{itemData.item.text}</Text>
-              </View>
-            );
-          }}
+          renderItem={itemData => <GoalItem />}
         />
       </View>
     </View>
@@ -75,13 +70,6 @@ const styles = StyleSheet.create({
   goalsContainer: {
     flex: 5,
     marginBottom: 24,
-  },
-  goalItem: {
-    padding: 8,
-    alignItems: 'center',
-    backgroundColor: '#ccceee',
-    marginTop: 12,
-    borderRadius: 6,
   },
 });
 
