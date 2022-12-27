@@ -76,14 +76,6 @@ const styles = StyleSheet.create({
     flex: 5,
     marginBottom: 24,
   },
-  goalContainer: {
-    padding: 8,
-    alignItems: 'center',
-    backgroundColor: '#ccceee',
-    marginTop: 12,
-    borderRadius: 6,
-    overflow: 'hidden',
-  },
   goalItem: {
     padding: 8,
     alignItems: 'center',
