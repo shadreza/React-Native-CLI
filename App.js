@@ -37,7 +37,7 @@ const App = () => {
           keyExtractor={(item, index) => {
             return item.id;
           }}
-          renderItem={itemData => <GoalItem />}
+          renderItem={itemData => <GoalItem text={itemData.item.text} />}
         />
       </View>
     </View>

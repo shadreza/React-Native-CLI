@@ -1,10 +1,11 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+// eslint-disable-next-line prettier/prettier
+import { StyleSheet, Text, View } from 'react-native';
 
-const GoalItem = () => {
+const GoalItem = props => {
   return (
     <View style={styles.goalItem}>
-      <Text>{itemData.item.text}</Text>
+      <Text>{props.text}</Text>
     </View>
   );
 };
