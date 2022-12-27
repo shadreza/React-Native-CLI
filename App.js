@@ -1,12 +1,17 @@
 // eslint-disable-next-line prettier/prettier
 import React, { useState } from 'react';
 // eslint-disable-next-line prettier/prettier
-import { FlatList, StyleSheet, View } from 'react-native';
+import { Button, FlatList, StyleSheet, View } from 'react-native';
 import GoalInput from './components/GoalInput';
 import GoalItem from './components/GoalItem';
 
 const App = () => {
   const [goals, setGoals] = useState([]);
+  const [modalIsVisible, setModalIsVisible] = useState(false);
+
+  const startAddGoalHandler = () => {
+    setModalIsVisible(true);
+  };
 
   const addGoalHandler = enteredGoalText => {
     // @ts-ignore
@@ -23,7 +28,12 @@ const App = () => {
 
   return (
     <View style={styles.appContainer}>
-      <GoalInput onAddGoal={addGoalHandler} />
+      <Button
+        title="Add New Goal"
+        color="#6D67E4"
+        onPress={startAddGoalHandler}
+      />
+      <GoalInput modalVisibility={modalIsVisible} onAddGoal={addGoalHandler} />
       <View style={styles.goalsContainer}>
         <FlatList
           data={goals}
