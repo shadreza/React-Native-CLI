@@ -1,7 +1,7 @@
 // eslint-disable-next-line prettier/prettier
 import React, { useState } from 'react';
 // eslint-disable-next-line prettier/prettier
-import { Button, Modal, StyleSheet, TextInput, View } from 'react-native';
+import { Button, Image, Modal, StyleSheet, TextInput, View } from 'react-native';
 
 const GoalInput = props => {
   const [enteredGoalText, setEnteredGoalText] = useState('');
@@ -17,6 +17,10 @@ const GoalInput = props => {
   return (
     <Modal visible={props.modalVisibility} animationType="slide">
       <View style={styles.inputContainer}>
+        <Image
+          source={require('../assets/images/target.jpeg')}
+          style={styles.image}
+        />
         <TextInput
           style={styles.textInput}
           placeholder="Your Course Goal!"
@@ -44,8 +48,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 24,
-    borderBottomWidth: 1,
-    borderBottomColor: '#cccccc',
     padding: 16,
   },
   textInput: {
@@ -63,5 +65,10 @@ const styles = StyleSheet.create({
   button: {
     width: '30%',
     marginHorizontal: 8,
+  },
+  image: {
+    width: 100,
+    height: 100,
+    margin: 20,
   },
 });
