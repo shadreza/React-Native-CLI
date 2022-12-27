@@ -1,10 +1,10 @@
 // eslint-disable-next-line prettier/prettier
 import React, { useState } from 'react';
 // eslint-disable-next-line prettier/prettier
-import { Button, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, FlatList, StyleSheet, Text, TextInput, View } from 'react-native';
 
 const App = () => {
-  const [enteredGoalText, setEnteredGoalText] = useState('');
+  const [enteredGoalText, setEnteredGoalText] = useState({});
 
   const [goals, setGoals] = useState([]);
 
@@ -14,7 +14,10 @@ const App = () => {
 
   const addGoalHandler = () => {
     // @ts-ignore
-    setGoals(currentGoals => [...currentGoals, enteredGoalText]);
+    setGoals(currentGoals => [
+      ...currentGoals,
+      {text: enteredGoalText, id: Math.random().toString()},
+    ]);
   };
 
   return (
@@ -28,13 +31,19 @@ const App = () => {
         <Button title="Add a Goal" onPress={addGoalHandler} />
       </View>
       <View style={styles.goalsContainer}>
-        <ScrollView>
-          {goals.map(goal => (
-            <Text style={styles.goalContainer} key={goal}>
-              {goal}
-            </Text>
-          ))}
-        </ScrollView>
+        <FlatList
+          data={goals}
+          keyExtractor={(item, index) => {
+            return item.id;
+          }}
+          renderItem={itemData => {
+            return (
+              <View style={styles.goalItem}>
+                <Text>{itemData.item.text}</Text>
+              </View>
+            );
+          }}
+        />
       </View>
     </View>
   );
@@ -74,6 +83,13 @@ const styles = StyleSheet.create({
     marginTop: 12,
     borderRadius: 6,
     overflow: 'hidden',
+  },
+  goalItem: {
+    padding: 8,
+    alignItems: 'center',
+    backgroundColor: '#ccceee',
+    marginTop: 12,
+    borderRadius: 6,
   },
 });
 
