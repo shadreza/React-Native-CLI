@@ -13,12 +13,17 @@ const App = () => {
     setModalIsVisible(true);
   };
 
+  const endAddGoalHandler = () => {
+    setModalIsVisible(false);
+  };
+
   const addGoalHandler = enteredGoalText => {
     // @ts-ignore
     setGoals(currentGoals => [
       ...currentGoals,
       {text: enteredGoalText, id: Math.random().toString()},
     ]);
+    endAddGoalHandler();
   };
 
   const onDeleteGoalHandler = id => {
@@ -33,7 +38,11 @@ const App = () => {
         color="#6D67E4"
         onPress={startAddGoalHandler}
       />
-      <GoalInput modalVisibility={modalIsVisible} onAddGoal={addGoalHandler} />
+      <GoalInput
+        modalVisibility={modalIsVisible}
+        onAddGoal={addGoalHandler}
+        onCloseModal={endAddGoalHandler}
+      />
       <View style={styles.goalsContainer}>
         <FlatList
           data={goals}

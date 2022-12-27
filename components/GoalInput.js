@@ -28,7 +28,7 @@ const GoalInput = props => {
             <Button title="Add a Goal" onPress={onAddGoalHandler} />
           </View>
           <View style={styles.button}>
-            <Button title="Cancel" />
+            <Button title="Cancel" onPress={props.onCloseModal} />
           </View>
         </View>
       </View>
