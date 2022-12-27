@@ -1,7 +1,7 @@
 // eslint-disable-next-line prettier/prettier
 import React, { useState } from 'react';
 // eslint-disable-next-line prettier/prettier
-import { Button, FlatList, StyleSheet, View } from 'react-native';
+import { Button, FlatList, StatusBar, StyleSheet, View } from 'react-native';
 import GoalInput from './components/GoalInput';
 import GoalItem from './components/GoalItem';
 
@@ -32,36 +32,39 @@ const App = () => {
   };
 
   return (
-    <View style={styles.appContainer}>
-      <Button
-        title="Add New Goal"
-        color="#6D67E4"
-        onPress={startAddGoalHandler}
-      />
-      <GoalInput
-        modalVisibility={modalIsVisible}
-        onAddGoal={addGoalHandler}
-        onCloseModal={endAddGoalHandler}
-      />
-      <View style={styles.goalsContainer}>
-        <FlatList
-          data={goals}
-          keyExtractor={(item, index) => {
-            // @ts-ignore
-            return item.id;
-          }}
-          renderItem={itemData => (
-            <GoalItem
-              // @ts-ignore
-              text={itemData.item.text}
-              // @ts-ignore
-              id={itemData.item.id}
-              onDeleteItem={onDeleteGoalHandler}
-            />
-          )}
+    <>
+      <StatusBar barStyle="dark-content" />
+      <View style={styles.appContainer}>
+        <Button
+          title="Add New Goal"
+          color="#6D67E4"
+          onPress={startAddGoalHandler}
         />
+        <GoalInput
+          modalVisibility={modalIsVisible}
+          onAddGoal={addGoalHandler}
+          onCloseModal={endAddGoalHandler}
+        />
+        <View style={styles.goalsContainer}>
+          <FlatList
+            data={goals}
+            keyExtractor={(item, index) => {
+              // @ts-ignore
+              return item.id;
+            }}
+            renderItem={itemData => (
+              <GoalItem
+                // @ts-ignore
+                text={itemData.item.text}
+                // @ts-ignore
+                id={itemData.item.id}
+                onDeleteItem={onDeleteGoalHandler}
+              />
+            )}
+          />
+        </View>
       </View>
-    </View>
+    </>
   );
 };
 

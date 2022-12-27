@@ -18,6 +18,7 @@ const GoalInput = props => {
     <Modal visible={props.modalVisibility} animationType="slide">
       <View style={styles.inputContainer}>
         <Image
+          // @ts-ignore
           source={require('../assets/images/target.jpeg')}
           style={styles.image}
         />
@@ -29,10 +30,14 @@ const GoalInput = props => {
         />
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
-            <Button title="Add a Goal" onPress={onAddGoalHandler} />
+            <Button
+              title="Cancel"
+              onPress={props.onCloseModal}
+              color="#FB2576"
+            />
           </View>
           <View style={styles.button}>
-            <Button title="Cancel" onPress={props.onCloseModal} />
+            <Button title="Add a Goal" onPress={onAddGoalHandler} />
           </View>
         </View>
       </View>

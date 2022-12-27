@@ -19,7 +19,7 @@ export default GoalItem;
 
 const styles = StyleSheet.create({
   goalItem: {
-    backgroundColor: '#6D67E4',
+    backgroundColor: '#79018C',
     marginTop: 12,
     borderRadius: 6,
   },
@@ -28,6 +28,6 @@ const styles = StyleSheet.create({
   },
   goalText: {
     padding: 8,
-    color: 'whitesmoke',
+    color: 'white',
   },
 });
