@@ -5,7 +5,7 @@ import { StyleSheet, Text, View } from 'react-native';
 const App = () => {
   return (
     <View style={styles.container}>
-      <Text>App</Text>
+      <Text>Mini Game App</Text>
     </View>
   );
 };
