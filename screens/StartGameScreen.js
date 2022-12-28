@@ -1,12 +1,14 @@
 import React from 'react';
 // eslint-disable-next-line prettier/prettier
 import { StyleSheet, TextInput, View } from 'react-native';
+import PrimaryButton from '../components/Buttons/PrimaryButton';
 
 const StartGameScreen = () => {
   return (
     <View>
       <TextInput />
-      {/* Buttons */}
+      <PrimaryButton>Hi</PrimaryButton>
+      <PrimaryButton>Kemon Acho</PrimaryButton>
     </View>
   );
 };
