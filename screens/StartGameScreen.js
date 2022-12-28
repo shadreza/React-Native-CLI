@@ -13,8 +13,10 @@ const StartGameScreen = () => {
         autoCapitalize="none"
         autoCorrect={false}
       />
-      <PrimaryButton>Hi</PrimaryButton>
-      <PrimaryButton>Kemon Acho</PrimaryButton>
+      <View style={styles.buttonsRow}>
+        <PrimaryButton>Reset</PrimaryButton>
+        <PrimaryButton>Confirm</PrimaryButton>
+      </View>
     </View>
   );
 };
@@ -38,7 +40,13 @@ const styles = StyleSheet.create({
     },
     shadowRadius: 6,
     shadowOpacity: 0.25,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
+  // textInputContainer: {
+  //   flexDirection: 'row',
+  //   justifyContent: 'center',
+  // },
   numberInput: {
     fontSize: 32,
     borderBottomColor: '#FAAB78',
@@ -48,5 +56,9 @@ const styles = StyleSheet.create({
     color: '#FAAB78',
     marginVertical: 8,
     fontWeight: 'bold',
+  },
+  buttonsRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
 });

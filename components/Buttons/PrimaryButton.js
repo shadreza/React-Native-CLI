@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     borderRadius: 28,
     margin: 6,
     overflow: 'hidden',
+    flex: 1,
   },
   buttonInnerContainer: {
     backgroundColor: '#72063c',
@@ -40,8 +41,8 @@ const styles = StyleSheet.create({
     // ios
     shadowColor: 'black',
     shadowOffset: {
-      width: 0,
-      height: 2,
+      width: 2,
+      height: 6,
     },
   },
   buttonText: {
