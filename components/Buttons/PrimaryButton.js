@@ -1,4 +1,3 @@
-// eslint-disable-next-line prettier/prettier
 import React from 'react';
 // eslint-disable-next-line prettier/prettier
 import { Pressable, StyleSheet, Text, View } from 'react-native';
