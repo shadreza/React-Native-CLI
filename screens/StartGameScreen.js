@@ -6,7 +6,7 @@ import PrimaryButton from '../components/Buttons/PrimaryButton';
 const StartGameScreen = () => {
   return (
     <View style={styles.inputContainer}>
-      <TextInput />
+      <TextInput style={styles.numberInput} maxLength={2} />
       <PrimaryButton>Hi</PrimaryButton>
       <PrimaryButton>Kemon Acho</PrimaryButton>
     </View>
@@ -32,5 +32,15 @@ const styles = StyleSheet.create({
     },
     shadowRadius: 6,
     shadowOpacity: 0.25,
+  },
+  numberInput: {
+    fontSize: 32,
+    borderBottomColor: '#FAAB78',
+    borderBottomWidth: 2,
+    width: 64,
+    textAlign: 'center',
+    color: '#FAAB78',
+    marginVertical: 8,
+    fontWeight: 'bold',
   },
 });
