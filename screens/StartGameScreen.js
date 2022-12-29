@@ -49,11 +49,11 @@ const styles = StyleSheet.create({
   // },
   numberInput: {
     fontSize: 32,
-    borderBottomColor: '#FAAB78',
+    borderBottomColor: '#FED049',
     borderBottomWidth: 2,
     width: 64,
     textAlign: 'center',
-    color: '#FAAB78',
+    color: '#FED049',
     marginVertical: 8,
     fontWeight: 'bold',
   },

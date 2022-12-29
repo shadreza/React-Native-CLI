@@ -4,7 +4,7 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 const PrimaryButton = ({children}) => {
   const pressHandler = () => {
-    console.log('primary button pressed');
+    // console.log('primary button pressed');
   };
 
   return (
